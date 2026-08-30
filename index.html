@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ffd6e5, #fff5f8);
+    overflow: hidden;
+}
+
+.card {
+    width: 85%;
+    max-width: 400px;
+    padding: 35px 25px;
+    background: white;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 10px 35px rgba(0,0,0,.15);
+}
+
+h1 {
+    color: #e83e70;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #444;
+}
+
+button {
+    padding: 13px 25px;
+    border: none;
+    border-radius: 25px;
+    background: #ef4f7b;
+    color: white;
+    font-size: 16px;
+}
+
+.hidden {
+    display: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card" id="one">
+    <h1>Hey… 👀</h1>
+    <p>I made something for you.<br>Just give me one minute. ❤️</p>
+    <button onclick="next(1)">Okay…</button>
+</div>
+
+<div class="card hidden" id="two">
+    <h1>First…</h1>
+    <p>I'm sorry. ❤️<br><br>
+    I really don't like knowing that you're upset.</p>
+    <button onclick="next(2)">There's more…</button>
+</div>
+
+<div class="card hidden" id="three">
+    <h1>And… ❤️</h1>
+    <p>I love you.</p>
+    <button onclick="next(3)">One last thing 😌</button>
+</div>
+
+<div class="card hidden" id="four">
+    <h1>Now smile please 🥺❤️</h1>
+    <p>
+        I know I can't fix everything with one message,
+        but I'll keep trying to make you smile.
+        <br><br>
+        <b>Even when you're angry with me. 😂❤️</b>
+    </p>
+</div>
+
+<script>
+function next(n) {
+    document.getElementById(["one","two","three","four"][n-1])
+        .classList.add("hidden");
+
+    document.getElementById(["one","two","three","four"][n])
+        .classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>

@@ -188,6 +188,23 @@ button {
         Now smile for me 😭❤️
     </button>
 
+    <br><br>
+
+<button onclick="sendSmile()">
+    I smiled ❤️
+</button>
+
+<script>
+function sendSmile() {
+    const number = "919451966148";
+    const message = "Bubu smiled ❤️";
+
+    window.location.href =
+        "https://wa.me/" + number +
+        "?text=" + encodeURIComponent(message);
+}
+</script>
+    
 </div>
 
 

@@ -1,255 +1,333 @@
+
+
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>For Bubu ❤️</title>
+<title>Happy 9th Anniversary, Bubu ❤️</title>
 
 <style>
-* {
-    box-sizing: border-box;
+
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{margin:0;background:#19040b;color:#fff0f3;font-family:Georgia,serif}
+
+nav{position:absolute;top:0;width:100%;padding:22px 10px;text-align:center;z-index:2}
+
+nav a{color:#ffd3df;text-decoration:none;margin:0 10px;font:12px Arial;letter-spacing:1px}
+
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:90px 20px;background:radial-gradient(ellipse,#79132f,#19040b 70%);position:relative;overflow:hidden}
+
+.hero-content{max-width:750px}
+
+.kicker{color:#f5a0b5;text-transform:uppercase;letter-spacing:4px;font:12px Arial}
+
+h1{font-size:clamp(48px,10vw,90px);line-height:1;margin:25px 0;font-weight:normal}
+
+h1 em{color:#f7a6ba}
+
+.hero p{font-size:20px;line-height:1.8;color:#f6d9e0}
+
+.heart{font-size:35px;animation:beat 1.2s infinite;color:#ff91ae}
+
+.btn{display:inline-block;background:#a71c40;border:1px solid #f4a2b7;color:white;border-radius:30px;padding:14px 25px;text-decoration:none;cursor:pointer;margin-top:15px}
+
+section{padding:75px 20px}
+
+.wrap{max-width:950px;margin:auto}
+
+h2{text-align:center;font-weight:normal;font-size:clamp(32px,6vw,52px);margin:15px 0 35px}
+
+.kicker{text-align:center}
+
+.letter{background:#fff1ed;color:#4a1022;padding:clamp(25px,6vw,55px);max-width:760px;margin:auto;line-height:1.9;font-size:18px;box-shadow:0 15px 45px #0005}
+
+.signature{font-size:25px;font-style:italic;color:#a51c40}
+
+.intro{text-align:center;color:#e7bdca;line-height:1.8;margin:-10px auto 30px;max-width:650px}
+
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+
+.memory{margin:0;position:relative;overflow:hidden;border:1px solid #80334b;background:#370b1b}
+
+.memory img{width:100%;height:400px;object-fit:cover;display:block;transition:.4s}
+
+.memory:hover img{transform:scale(1.04)}
+
+.memory figcaption{padding:15px 8px;text-align:center;color:#ffe3ea}
+
+.promises{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+
+.promise{padding:25px 18px;text-align:center;background:#300917;border:1px solid #6b243a}
+
+.promise .emoji{font-size:32px}
+
+.promise h3{font-size:22px;color:#f6a5b9;font-weight:normal}
+
+.promise p{font:14px/1.8 Arial;color:#e7c6ce}
+
+.secret{text-align:center;background:radial-gradient(ellipse,#501025,transparent 70%)}
+
+#note{display:none;max-width:650px;margin:25px auto;line-height:1.9;font-size:20px;color:#ffdfe7}
+
+footer{text-align:center;padding:35px 15px 50px;color:#d69aaa;font:13px Arial;line-height:2}
+
+.petal{position:fixed;top:-30px;pointer-events:none;color:#f7a6ba;opacity:.45;animation:fall linear infinite;z-index:3}
+
+@keyframes beat{50%{transform:scale(1.2)}}
+
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}
+
+@media(max-width:650px){
+
+.gallery,.promises{grid-template-columns:1fr}
+
+.gallery{max-width:430px;margin:auto}
+
+.memory img{height:auto;max-height:520px;object-fit:cover}
+
+section{padding:60px 16px}
+
+.letter{font-size:17px}
+
+nav a{margin:0 6px;font-size:10px}
+
 }
 
-body {
-    margin: 0;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #ffd6e5, #fff5f8);
-    overflow: hidden;
-}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;scroll-behavior:auto!important}}
 
-.card {
-    width: 88%;
-    max-width: 420px;
-    padding: 35px 25px;
-    background: rgba(255,255,255,0.96);
-    border-radius: 28px;
-    text-align: center;
-    box-shadow: 0 15px 45px rgba(0,0,0,0.12);
-    animation: appear 0.8s ease;
-    z-index: 5;
-}
-
-h1 {
-    color: #e83e70;
-    font-size: 34px;
-    margin-bottom: 20px;
-}
-
-p {
-    color: #444;
-    font-size: 19px;
-    line-height: 1.6;
-}
-
-button {
-    border: none;
-    padding: 14px 27px;
-    border-radius: 30px;
-    background: #f04f7b;
-    color: white;
-    font-size: 17px;
-    margin-top: 15px;
-}
-
-.hidden {
-    display: none;
-}
-
-.heart {
-    position: absolute;
-    bottom: -40px;
-    font-size: 25px;
-    animation: floatUp linear forwards;
-}
-
-@keyframes appear {
-    from {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-@keyframes floatUp {
-    from {
-        transform: translateY(0);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateY(-110vh);
-        opacity: 0;
-    }
-}
 </style>
+
 </head>
 
 <body>
 
-<!-- SCREEN 1 -->
+<nav>
 
-<div class="card" id="screen1">
+<a href="#letter">MY LETTER</a>
 
-    <h1>Hey Bubu… ❤️</h1>
+<a href="#memories">OUR MEMORIES</a>
 
-    <p>
-        I made something for you.
-        <br><br>
-        Just give me a minute. 🥺
-    </p>
+<a href="#promises">MY PROMISES</a>
 
-    <button onclick="nextScreen(1)">
-        Okay… 👀
-    </button>
+</nav>
 
-</div>
+<header class="hero">
 
+<div class="hero-content">
 
-<!-- SCREEN 2 -->
+<div class="kicker">A little love story · nine years together</div>
 
-<div class="card hidden" id="screen2">
+<div class="heart">♥</div>
 
-    <h1>I'm Sorry, Bubu ❤️</h1>
+<h1>Happy 9th<br><em>Anniversary,</em><br>Bubu</h1>
 
-    <p>
-        I’m sorry, Bubu. ❤️
-        <br><br>
-        I know I may not always get everything right,
-        but I promise I’ll keep working on myself
-        and make things better.
-        <br><br>
-        And I just want you to know…
-        <br>
-        <b>I love you, and I don’t want to lose that smile of yours. ❤️</b>
-    </p>
+<p>Nine years, a thousand memories, countless little moments—and still, my heart chooses you. Every single time.</p>
 
-    <button onclick="nextScreen(2)">
-        There's one more thing…
-    </button>
+<a class="btn" href="#letter">Open your love letter ♥</a>
 
 </div>
 
+</header>
 
-<!-- SCREEN 3 -->
+<main>
 
-<div class="card hidden" id="screen3">
+<section id="letter">
 
-    <h1>One Promise ❤️</h1>
+<div class="wrap">
 
-    <p>
-        I know saying sorry is not enough.
-        <br><br>
+<div class="kicker">FROM MY HEART TO YOURS</div>
 
-        <b>
-        Main khud ko theek kar lunga.
-        </b>
+<h2>To my Bubu,</h2>
 
-        <br><br>
+<div class="letter">
 
-        I’ll keep working on myself
-        and keep trying to make things better.
-    </p>
+<p>My Bubu,</p>
 
-    <button onclick="nextScreen(3)">
-        One last thing… ❤️
-    </button>
+<p>Nine years. When I think about it, I realise that what we have is so much more than a number. It is a thousand little moments, the memories only we understand, the smiles, the silly things, the difficult days, and all the times life somehow brought my heart back to you.</p>
+
+<p>You are woven into so many parts of my life. And if these nine years have taught me anything, it is that love is not only about the beautiful days. It is also about choosing each other, trying again, listening a little more, and holding on to the tenderness that made us “us.”</p>
+
+<p>I cannot promise that every day will be perfect. But I can promise to keep learning how to love you better, to celebrate your happiness, to respect your heart, and to keep making memories with you. I hope we never stop finding reasons to laugh together or little ways to make ordinary days feel special.</p>
+
+<p>Thank you for being part of my story for these nine years. Whatever the next chapters bring, I hope we fill them with honesty, warmth, patience, and a love that keeps growing.</p>
+
+<p>Happy 9th anniversary, Bubu. If I could go back and meet you all over again, I would still want the chance to know you, to laugh with you, and to build this story with you.</p>
+
+<p class="signature">Forever your Yasir ♥</p>
 
 </div>
 
+</div>
 
-<!-- SCREEN 4 -->
+</section>
 
-<div class="card hidden" id="screen4">
+<section id="memories">
 
-    <h1>I Love You, Bubu ❤️</h1>
+<div class="wrap">
 
-    <p>
-        No matter what…
-        <br><br>
+<div class="kicker">LITTLE PIECES OF FOREVER</div>
 
-        <b>I love you. ❤️</b>
+<h2>Our memories</h2>
 
-        <br><br>
+<p class="intro">Every picture holds a moment; every moment holds a little piece of us.</p>
 
-        And I really, really want to see
-        that smile again. 🥺❤️
-    </p>
+<div class="gallery">
 
-    <button onclick="makeItRain()">
-        Now smile for me 😭❤️
-    </button>
+<figure class="memory">
 
-    <br><br>
+<img src="photos/photo1.jpg" alt="Our hands together">
 
-<button onclick="sendSmile()">
-    I smiled ❤️
-</button>
+<figcaption>Still choosing you ♥</figcaption>
+
+</figure>
+
+<figure class="memory">
+
+<img src="photos/photo2.jpg" alt="Our favourite selfie">
+
+<figcaption>One of my favourite memories</figcaption>
+
+</figure>
+
+<figure class="memory">
+
+<img src="photos/photo3.jpg" alt="Our black and white memory">
+
+<figcaption>Just us, being us ✨</figcaption>
+
+</figure>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="promises">
+
+<div class="wrap">
+
+<div class="kicker">NOT JUST TODAY, BUT ALWAYS</div>
+
+<h2>My promises to you</h2>
+
+<div class="promises">
+
+<div class="promise">
+
+<div class="emoji">🫶</div>
+
+<h3>Choosing us</h3>
+
+<p>To keep showing up with care, honesty, patience, and understanding.</p>
+
+</div>
+
+<div class="promise">
+
+<div class="emoji">🌹</div>
+
+<h3>Growing together</h3>
+
+<p>To make room for our dreams and keep creating beautiful memories.</p>
+
+</div>
+
+<div class="promise">
+
+<div class="emoji">💌</div>
+
+<h3>Showing my love</h3>
+
+<p>To remind you that you matter to me, through words and little things I do.</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="secret">
+
+<div class="wrap">
+
+<div class="kicker">PSST… JUST FOR YOU</div>
+
+<h2>A little secret</h2>
+
+<button class="btn" id="open-note" onclick="toggleNote()">Open your secret note 💌</button>
+
+<div id="note">Bubu, out of all the beautiful things life could have given me, I’m grateful that our paths crossed. Thank you for being part of my nine-year story. This little page is one small way of saying: you are loved. Always, Yasir. ❤️</div>
+
+</div>
+
+</section>
+
+</main>
+
+<footer>
+
+Made with love, roses, and a heart full of memories ♥<br>
+
+Yasir &amp; Bubu · Chapter 9
+
+</footer>
 
 <script>
-function sendSmile() {
-    const number = "919451966148";
-    const message = "Bubu smiled ❤️";
 
-    window.location.href =
-        "https://wa.me/" + number +
-        "?text=" + encodeURIComponent(message);
-}
-</script>
-    
-</div>
+function toggleNote(){
 
+ const n=document.getElementById('note');
 
-<script>
+ const b=document.getElementById('open-note');
 
-function nextScreen(number) {
+ const isOpen=n.style.display==='block';
 
-    document.getElementById("screen" + number)
-        .classList.add("hidden");
+ n.style.display=isOpen?'none':'block';
 
-    document.getElementById("screen" + (number + 1))
-        .classList.remove("hidden");
+ b.textContent=isOpen?'Open your secret note 💌':'Close your secret note ♥';
+
 }
 
+if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
 
-function makeItRain() {
+ const symbols=['♥','♡','✿'];
 
-    for (let i = 0; i < 45; i++) {
+ for(let i=0;i<18;i++){
 
-        setTimeout(function() {
+  const p=document.createElement('span');
 
-            const heart = document.createElement("div");
+  p.className='petal';
 
-            heart.className = "heart";
+  p.textContent=symbols[i%symbols.length];
 
-            heart.innerHTML =
-                ["❤️","💕","💗","💖","🥺","😂"][Math.floor(Math.random() * 6)];
+  p.style.left=Math.random()*100+'%';
 
-            heart.style.left =
-                Math.random() * 100 + "vw";
+  p.style.animationDuration=(9+Math.random()*12)+'s';
 
-            heart.style.animationDuration =
-                (3 + Math.random() * 4) + "s";
+  p.style.animationDelay=(-Math.random()*18)+'s';
 
-            document.body.appendChild(heart);
+  p.style.fontSize=(12+Math.random()*18)+'px';
 
-            setTimeout(function() {
-                heart.remove();
-            }, 7000);
+  document.body.appendChild(p);
 
-        }, i * 70);
-    }
+ }
+
 }
 
 </script>
 
 </body>
+
 </html>

@@ -3,245 +3,410 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>9 Years of Us ❤️</title>
+  <meta name="theme-color" content="#210609">
+  <title>For My Bubu ❤️</title>
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+    html {
+      scroll-behavior: smooth;
+    }
     body {
-      font-family: Georgia, 'Times New Roman', serif;
-      background: linear-gradient(135deg, #fff0f5, #ffe0eb, #fff7fa);
-      color: #6b2445;
+      font-family: Georgia, "Times New Roman", serif;
+      background: #210609;
+      color: #fff0f0;
       text-align: center;
       overflow-x: hidden;
     }
-    header {
-      padding: 55px 20px 35px;
+    .hero {
+      min-height: 100vh;
+      padding: 35px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at center, #68101c 0%, #38080f 45%, #170306 100%);
     }
-    .heart {
-      font-size: 45px;
-      animation: heartbeat 1.4s infinite;
-      display: inline-block;
+    .rose {
+      font-size: 55px;
+      margin-bottom: 15px;
+      animation: roseGlow 2.5s ease-in-out infinite;
     }
-    @keyframes heartbeat {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.18); }
+    @keyframes roseGlow {
+      0%, 100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 5px #ff5268);
+      }
+      50% {
+        transform: scale(1.12);
+        filter: drop-shadow(0 0 20px #ff5268);
+      }
+    }
+    .eyebrow {
+      color: #ffc0c8;
+      letter-spacing: 4px;
+      font-size: 12px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
     }
     h1 {
-      font-size: clamp(36px, 8vw, 58px);
-      margin: 15px 0;
-      color: #c2185b;
+      font-size: clamp(42px, 10vw, 76px);
+      line-height: 1.15;
+      color: #fff0f0;
+      text-shadow: 0 0 25px rgba(255, 60, 85, 0.45);
     }
-    h2 {
-      font-size: clamp(25px, 6vw, 36px);
-      margin-bottom: 18px;
-      color: #b51d59;
+    .hero h1 span {
+      color: #ff6278;
+      font-style: italic;
     }
-    p {
+    .subtitle {
       font-size: 18px;
       line-height: 1.8;
+      color: #f4c5cb;
+      margin-top: 22px;
+      max-width: 500px;
     }
-    .intro {
-      max-width: 700px;
+    .hero-button,
+    .reveal-button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 15px 27px;
+      border: 1px solid #ff7588;
+      border-radius: 40px;
+      background: linear-gradient(135deg, #a90e2b, #e52b4b);
+      color: white;
+      font-family: inherit;
+      font-size: 16px;
+      text-decoration: none;
+      cursor: pointer;
+      box-shadow: 0 0 25px rgba(255, 42, 75, 0.25);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .hero-button:hover,
+    .reveal-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 30px rgba(255, 42, 75, 0.5);
+    }
+    .section {
+      padding: 70px 20px;
+    }
+    .section-title {
+      font-size: clamp(30px, 7vw, 44px);
+      color: #ff8797;
+      margin-bottom: 18px;
+    }
+    .section-text {
+      max-width: 680px;
       margin: 0 auto;
-      padding: 0 22px 40px;
+      font-size: 17px;
+      line-height: 2;
+      color: #f5d9dc;
     }
-    .intro p {
-      margin-top: 12px;
+    .divider {
+      color: #ff6278;
+      letter-spacing: 10px;
+      margin: 25px 0;
+      font-size: 22px;
+    }
+    .gallery-section {
+      background: linear-gradient(180deg, #210609, #390810, #210609);
     }
     .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
-      gap: 25px;
       max-width: 1050px;
-      margin: 0 auto;
-      padding: 25px 20px 55px;
+      margin: 35px auto 0;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
     }
     .photo-card {
-      background: rgba(255, 255, 255, 0.85);
-      padding: 14px;
-      border-radius: 20px;
-      box-shadow: 0 8px 25px rgba(150, 40, 85, 0.14);
-      overflow: hidden;
+      padding: 12px;
+      border: 1px solid rgba(255, 125, 145, 0.35);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.045);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     }
     .photo-card img {
       display: block;
       width: 100%;
-      height: 340px;
+      height: 330px;
       object-fit: contain;
-      background: #fff5f8;
-      border-radius: 13px;
+      background: #160407;
+      border-radius: 11px;
     }
     .caption {
       padding: 16px 5px 8px;
-      font-size: 19px;
-      color: #a01750;
-    }
-    .message-section {
-      padding: 45px 22px 55px;
-      background: rgba(255, 255, 255, 0.45);
-    }
-    .message-section p {
-      max-width: 700px;
-      margin: 0 auto;
-    }
-    .promise {
-      margin: 20px auto;
-      padding: 40px 22px 55px;
-      max-width: 750px;
-    }
-    button {
-      border: none;
-      background: #d6336c;
-      color: white;
-      padding: 15px 28px;
+      color: #ffc0c8;
       font-size: 17px;
-      border-radius: 30px;
+      line-height: 1.5;
+    }
+    .letter-section {
+      background: #170407;
+    }
+    .letter {
+      max-width: 700px;
+      margin: 30px auto 0;
+      padding: 35px 25px;
+      border: 1px solid rgba(255, 115, 135, 0.45);
+      border-radius: 8px;
+      background: linear-gradient(145deg, #3a0b13, #28070d);
+      box-shadow: 0 0 40px rgba(255, 40, 75, 0.08);
+      text-align: left;
+    }
+    .letter h3 {
+      text-align: center;
+      font-size: 27px;
+      color: #ff9baa;
+      margin-bottom: 25px;
+      font-weight: normal;
+    }
+    .letter p {
+      color: #f9dfe2;
+      font-size: 17px;
+      line-height: 2;
+      margin-bottom: 17px;
+    }
+    .signature {
+      text-align: right;
+      color: #ff9baa !important;
+      font-style: italic;
       margin-top: 25px;
-      cursor: pointer;
-      box-shadow: 0 5px 15px rgba(190, 30, 90, 0.22);
     }
-    button:active {
-      transform: scale(0.97);
+    .promise-section {
+      padding-bottom: 85px;
+      background: radial-gradient(ellipse at center, #4c0b17, #210609 75%);
     }
-    #hiddenMessage {
+    #surprise {
       display: none;
-      margin: 28px auto 0;
-      padding: 22px;
-      max-width: 600px;
-      background: rgba(255, 255, 255, 0.8);
+      max-width: 650px;
+      margin: 30px auto 0;
+      padding: 25px;
       border-radius: 18px;
-      font-size: 20px;
-      line-height: 1.8;
+      border: 1px solid #b82d46;
+      background: rgba(20, 2, 6, 0.7);
+      animation: reveal 0.8s ease;
+    }
+    #surprise p {
+      font-size: 18px;
+      line-height: 2;
+      color: #ffe1e5;
+      margin-bottom: 12px;
+    }
+    @keyframes reveal {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
     footer {
-      padding: 28px 15px 35px;
-      font-size: 16px;
-      color: #a01750;
+      padding: 30px 15px;
+      background: #120205;
+      color: #d99ba4;
+      font-size: 15px;
+      line-height: 2;
     }
     .floating-heart {
       position: fixed;
-      bottom: -30px;
-      font-size: 22px;
+      bottom: -40px;
+      left: 0;
       pointer-events: none;
-      animation: floatUp 4s linear forwards;
-      z-index: 10;
+      z-index: 100;
+      animation: floatUp 5s linear forwards;
     }
     @keyframes floatUp {
-      from {
+      0% {
         transform: translateY(0) rotate(0deg);
-        opacity: 1;
+        opacity: 0;
       }
-      to {
-        transform: translateY(-110vh) rotate(30deg);
+      10% {
+        opacity: 0.9;
+      }
+      100% {
+        transform: translateY(-115vh) rotate(35deg);
         opacity: 0;
       }
     }
-    @media (max-width: 600px) {
-      header {
-        padding-top: 40px;
-      }
+    @media (max-width: 700px) {
       .gallery {
         grid-template-columns: 1fr;
-        padding-left: 18px;
-        padding-right: 18px;
-        gap: 22px;
+        max-width: 430px;
       }
       .photo-card img {
         height: 360px;
+      }
+      .section {
+        padding: 55px 18px;
+      }
+      .letter {
+        padding: 28px 20px;
+      }
+      .letter p {
+        font-size: 16px;
+      }
+      .eyebrow {
+        letter-spacing: 2px;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="heart">❤️</div>
-    <h1>9 Years of Us</h1>
-    <p>Happy 9th Anniversary, Bubu! 🥹💕</p>
-  </header>
-  <section class="intro">
-    <h2>To My Favourite Person 💗</h2>
-    <p>
-      Nine years, countless memories, endless emotions,
-      and one person my heart keeps choosing — YOU.
+  <section class="hero">
+    <div class="rose">🌹</div>
+    <div class="eyebrow">A little world made just for you</div>
+    <h1>Happy Anniversary,<br><span>My Bubu</span> ❤️</h1>
+    <p class="subtitle">
+      Nine years of memories, a thousand little moments,
+      and one heart that still chooses you.
     </p>
-    <p>
-      No matter how much time passes, you will always
-      have a special place in my heart.
-    </p>
+    <a href="#letter" class="hero-button">A Letter for You 💌</a>
+    <div class="divider">♥ ♥ ♥</div>
+    <p style="color:#ffc0c8;">9 Years of Us · Forever to Go</p>
   </section>
-  <section class="gallery">
-    <div class="photo-card">
-      <img src="photos/photo1.JPG"
-           alt="Our favourite memory"
-           loading="lazy">
-      <div class="caption">Still choosing you ❤️</div>
-    </div>
-    <div class="photo-card">
-      <img src="photos/photo2.GIF"
-           alt="One of our favourite memories"
-           loading="lazy">
-      <div class="caption">One of my favourite memories 🥹</div>
-    </div>
-    <div class="photo-card">
-      <img src="photos/photo3.JPG"
-           alt="Just us, being us"
-           loading="lazy">
-      <div class="caption">Just us, being us ✨</div>
+  <section class="section">
+    <h2 class="section-title">To My Favourite Person ❤️</h2>
+    <p class="section-text">
+      Some people become a part of your story.
+      And then there's that one person who becomes
+      your favourite part of the story itself.
+      <br><br>
+      For me, that person will always be you, Bubu.
+      🌹
+    </p>
+    <div class="divider">❣</div>
+  </section>
+  <section class="section gallery-section">
+    <h2 class="section-title">Our Little Memories 📸</h2>
+    <p class="section-text">
+      Every picture holds a moment.
+      Every moment holds a feeling.
+      And every memory with you means something to me.
+    </p>
+    <div class="gallery">
+      <div class="photo-card">
+        <img src="photos/photo1.JPG"
+             alt="One of my favourite memories"
+             loading="lazy">
+        <div class="caption">One of my favourite memories 🥹</div>
+      </div>
+      <div class="photo-card">
+        <img src="photos/photo2.GIF"
+             alt="Just us, being us"
+             loading="lazy">
+        <div class="caption">Just us, being us ✨</div>
+      </div>
+      <div class="photo-card">
+        <img src="photos/photo3.JPG"
+             alt="Still choosing you"
+             loading="lazy">
+        <div class="caption">Still choosing you ❤️</div>
+      </div>
     </div>
   </section>
-  <section class="message-section">
-    <h2>My Bubu, My Home 🫶🏻</h2>
-    <p>
-      You are more than just a part of my life.
-      You are the person behind so many of my smiles,
-      the one I want to share my little moments with,
-      and the one I keep wishing for in my future.
-    </p>
+  <section class="section letter-section" id="letter">
+    <div class="rose">💌</div>
+    <h2 class="section-title">A Love Letter for Bubu</h2>
+    <div class="letter">
+      <h3>My Dearest Bubu, ❤️</h3>
+      <p>
+        Nine years. When I think about it, I realise how many
+        memories, conversations, smiles, and emotions those
+        years hold.
+      </p>
+      <p>
+        You're someone who holds a very special place in my
+        heart. No matter how ordinary a day may be, having
+        you in my life makes it mean a little more.
+      </p>
+      <p>
+        I may not always find the perfect words to explain
+        what you mean to me, but I hope my actions, my care,
+        and the love I have for you show you how precious
+        you are to me.
+      </p>
+      <p>
+        If I could make one wish for our future, it would be
+        for us to keep growing together, to understand each
+        other better, and to have countless more memories
+        worth smiling about.
+      </p>
+      <p>
+        Happy 9th Anniversary, Bubu. Thank you for being
+        part of my life and my story. ❤️
+      </p>
+      <p class="signature">
+        Forever yours,<br>
+        Your Dudu 💋
+      </p>
+    </div>
   </section>
-  <section class="promise">
-    <h2>A Little Promise From Me 💍</h2>
-    <p>
-      Whatever life brings our way, I want us to keep
-      choosing each other, understanding each other,
-      and making beautiful memories together.
+  <section class="section promise-section">
+    <div class="rose">🌹</div>
+    <h2 class="section-title">One Little Surprise</h2>
+    <p class="section-text">
+      There's one more thing I want you to read,
+      my Bubu. Open it when you're ready. ❤️
     </p>
-    <button onclick="showMessage()">
-      Open Your Little Surprise 💌
+    <button class="reveal-button" onclick="revealSurprise()">
+      Open My Heart 💖
     </button>
-    <div id="hiddenMessage">
+    <div id="surprise">
+      <p>Happy Anniversary, meri Bubu! ❤️🌹</p>
       <p>
-        Happy 9th Anniversary, Bubu! ❤️
+        Nine years behind us, so many dreams ahead of us,
+        and a heart that still wants to make more memories
+        with you.
       </p>
       <p>
-        Nine years of us, and my heart still chooses you.
-        Thank you for being a part of my story.
-        I hope we get to celebrate countless more
-        anniversaries together. I love you, Bubu. 🥹❤️
+        Whatever tomorrow brings, I hope we keep finding
+        our way back to understanding, kindness, and love.
+        You will always be very special to me.
       </p>
-      <p>Forever your Dudu 💋</p>
+      <p>
+        I love you, Bubu. Today, tomorrow, and in all the
+        little moments in between. 🥹❤️
+      </p>
+      <p>Yours always — Dudu 💋</p>
     </div>
   </section>
   <footer>
-    Made with all my love, just for you ❤️
+    Made with love, just for my Bubu ❤️
     <br>
-    Yours always, Dudu 🫶🏻
+    🌹 Nine years of us. A lifetime of memories to come. 🌹
   </footer>
   <script>
-    function showMessage() {
-      const message = document.getElementById("hiddenMessage");
-      message.style.display = "block";
-      for (let i = 0; i < 15; i++) {
-        const heart = document.createElement("div");
+    function revealSurprise() {
+      const surprise = document.getElementById("surprise");
+      surprise.style.display = "block";
+      surprise.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+      for (let i = 0; i < 24; i++) {
+        const heart = document.createElement("span");
         heart.className = "floating-heart";
-        heart.textContent = ["❤️", "💕", "💗", "💖"][
-          Math.floor(Math.random() * 4)
-        ];
+        const hearts = ["❤️", "💖", "💕", "🌹", "💗"];
+        heart.textContent =
+          hearts[Math.floor(Math.random() * hearts.length)];
         heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = (16 + Math.random() * 20) + "px";
+        heart.style.animationDuration = (3 + Math.random() * 3) + "s";
         document.body.appendChild(heart);
-        setTimeout(() => heart.remove(), 4000);
+        setTimeout(() => heart.remove(), 6500);
       }
     }
   </script>

@@ -1,414 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#210609">
-  <title>For My Bubu ❤️</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    html {
-      scroll-behavior: smooth;
-    }
-    body {
-      font-family: Georgia, "Times New Roman", serif;
-      background: #210609;
-      color: #fff0f0;
-      text-align: center;
-      overflow-x: hidden;
-    }
-    .hero {
-      min-height: 100vh;
-      padding: 35px 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      background:
-        radial-gradient(ellipse at center, #68101c 0%, #38080f 45%, #170306 100%);
-    }
-    .rose {
-      font-size: 55px;
-      margin-bottom: 15px;
-      animation: roseGlow 2.5s ease-in-out infinite;
-    }
-    @keyframes roseGlow {
-      0%, 100% {
-        transform: scale(1);
-        filter: drop-shadow(0 0 5px #ff5268);
-      }
-      50% {
-        transform: scale(1.12);
-        filter: drop-shadow(0 0 20px #ff5268);
-      }
-    }
-    .eyebrow {
-      color: #ffc0c8;
-      letter-spacing: 4px;
-      font-size: 12px;
-      text-transform: uppercase;
-      margin-bottom: 18px;
-    }
-    h1 {
-      font-size: clamp(42px, 10vw, 76px);
-      line-height: 1.15;
-      color: #fff0f0;
-      text-shadow: 0 0 25px rgba(255, 60, 85, 0.45);
-    }
-    .hero h1 span {
-      color: #ff6278;
-      font-style: italic;
-    }
-    .subtitle {
-      font-size: 18px;
-      line-height: 1.8;
-      color: #f4c5cb;
-      margin-top: 22px;
-      max-width: 500px;
-    }
-    .hero-button,
-    .reveal-button {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 15px 27px;
-      border: 1px solid #ff7588;
-      border-radius: 40px;
-      background: linear-gradient(135deg, #a90e2b, #e52b4b);
-      color: white;
-      font-family: inherit;
-      font-size: 16px;
-      text-decoration: none;
-      cursor: pointer;
-      box-shadow: 0 0 25px rgba(255, 42, 75, 0.25);
-      transition: transform 0.25s, box-shadow 0.25s;
-    }
-    .hero-button:hover,
-    .reveal-button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 0 30px rgba(255, 42, 75, 0.5);
-    }
-    .section {
-      padding: 70px 20px;
-    }
-    .section-title {
-      font-size: clamp(30px, 7vw, 44px);
-      color: #ff8797;
-      margin-bottom: 18px;
-    }
-    .section-text {
-      max-width: 680px;
-      margin: 0 auto;
-      font-size: 17px;
-      line-height: 2;
-      color: #f5d9dc;
-    }
-    .divider {
-      color: #ff6278;
-      letter-spacing: 10px;
-      margin: 25px 0;
-      font-size: 22px;
-    }
-    .gallery-section {
-      background: linear-gradient(180deg, #210609, #390810, #210609);
-    }
-    .gallery {
-      max-width: 1050px;
-      margin: 35px auto 0;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-    }
-    .photo-card {
-      padding: 12px;
-      border: 1px solid rgba(255, 125, 145, 0.35);
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.045);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    }
-    .photo-card img {
-      display: block;
-      width: 100%;
-      height: 330px;
-      object-fit: contain;
-      background: #160407;
-      border-radius: 11px;
-    }
-    .caption {
-      padding: 16px 5px 8px;
-      color: #ffc0c8;
-      font-size: 17px;
-      line-height: 1.5;
-    }
-    .letter-section {
-      background: #170407;
-    }
-    .letter {
-      max-width: 700px;
-      margin: 30px auto 0;
-      padding: 35px 25px;
-      border: 1px solid rgba(255, 115, 135, 0.45);
-      border-radius: 8px;
-      background: linear-gradient(145deg, #3a0b13, #28070d);
-      box-shadow: 0 0 40px rgba(255, 40, 75, 0.08);
-      text-align: left;
-    }
-    .letter h3 {
-      text-align: center;
-      font-size: 27px;
-      color: #ff9baa;
-      margin-bottom: 25px;
-      font-weight: normal;
-    }
-    .letter p {
-      color: #f9dfe2;
-      font-size: 17px;
-      line-height: 2;
-      margin-bottom: 17px;
-    }
-    .signature {
-      text-align: right;
-      color: #ff9baa !important;
-      font-style: italic;
-      margin-top: 25px;
-    }
-    .promise-section {
-      padding-bottom: 85px;
-      background: radial-gradient(ellipse at center, #4c0b17, #210609 75%);
-    }
-    #surprise {
-      display: none;
-      max-width: 650px;
-      margin: 30px auto 0;
-      padding: 25px;
-      border-radius: 18px;
-      border: 1px solid #b82d46;
-      background: rgba(20, 2, 6, 0.7);
-      animation: reveal 0.8s ease;
-    }
-    #surprise p {
-      font-size: 18px;
-      line-height: 2;
-      color: #ffe1e5;
-      margin-bottom: 12px;
-    }
-    @keyframes reveal {
-      from {
-        opacity: 0;
-        transform: translateY(15px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    footer {
-      padding: 30px 15px;
-      background: #120205;
-      color: #d99ba4;
-      font-size: 15px;
-      line-height: 2;
-    }
-    .floating-heart {
-      position: fixed;
-      bottom: -40px;
-      left: 0;
-      pointer-events: none;
-      z-index: 100;
-      animation: floatUp 5s linear forwards;
-    }
-    @keyframes floatUp {
-      0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0;
-      }
-      10% {
-        opacity: 0.9;
-      }
-      100% {
-        transform: translateY(-115vh) rotate(35deg);
-        opacity: 0;
-      }
-    }
-    @media (max-width: 700px) {
-      .gallery {
-        grid-template-columns: 1fr;
-        max-width: 430px;
-      }
-      .photo-card img {
-        height: 360px;
-      }
-      .section {
-        padding: 55px 18px;
-      }
-      .letter {
-        padding: 28px 20px;
-      }
-      .letter p {
-        font-size: 16px;
-      }
-      .eyebrow {
-        letter-spacing: 2px;
-      }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#210609">
+<title>For My Bubu ❤️</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:Georgia,"Times New Roman",serif;
+  background:#210609;color:#fff0f0;
+  text-align:center;overflow-x:hidden
+}
+.hero{
+  min-height:100vh;padding:40px 20px;
+  display:flex;flex-direction:column;
+  justify-content:center;align-items:center;
+  background:radial-gradient(ellipse at center,#68101c,#38080f 55%,#170306);
+}
+.rose{font-size:55px;margin-bottom:18px;animation:glow 2s infinite}
+@keyframes glow{
+  50%{transform:scale(1.12);filter:drop-shadow(0 0 18px #ff5268)}
+}
+.eyebrow{color:#ffc0c8;letter-spacing:3px;font-size:12px;text-transform:uppercase}
+h1{font-size:clamp(40px,10vw,76px);line-height:1.2;margin-top:20px}
+h1 span{color:#ff6278;font-style:italic}
+.subtitle{font-size:18px;line-height:1.8;color:#f4c5cb;max-width:520px;margin-top:22px}
+button,.button{
+  display:inline-block;margin-top:28px;padding:15px 27px;
+  border:1px solid #ff7588;border-radius:40px;
+  background:linear-gradient(135deg,#a90e2b,#e52b4b);
+  color:white;font-family:inherit;font-size:16px;
+  text-decoration:none;cursor:pointer
+}
+.section{padding:70px 20px}
+.section-title{font-size:clamp(30px,7vw,44px);color:#ff8797;margin-bottom:20px}
+.section-text{max-width:680px;margin:auto;font-size:17px;line-height:2;color:#f5d9dc}
+.divider{color:#ff6278;letter-spacing:8px;margin:25px 0;font-size:22px}
+.gallery-section{background:linear-gradient(#210609,#390810,#210609)}
+.gallery{
+  max-width:1050px;margin:35px auto 0;
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px
+}
+.photo-card{
+  padding:12px;border:1px solid #873044;border-radius:18px;
+  background:#ffffff09;box-shadow:0 10px 30px #0005
+}
+.photo-card img{
+  display:block;width:100%;height:340px;
+  object-fit:contain;background:#160407;border-radius:11px
+}
+.caption{padding:16px 5px 8px;color:#ffc0c8;font-size:17px;line-height:1.5}
+.letter-section{background:#170407}
+.letter{
+  max-width:700px;margin:30px auto 0;padding:30px 25px;
+  border:1px solid #873044;border-radius:8px;
+  background:linear-gradient(145deg,#3a0b13,#28070d);text-align:left
+}
+.letter h3{text-align:center;font-size:27px;color:#ff9baa;margin-bottom:25px;font-weight:normal}
+.letter p{color:#f9dfe2;font-size:17px;line-height:2;margin-bottom:17px}
+.signature{text-align:right;color:#ff9baa!important;font-style:italic;margin-top:25px}
+.promise-section{background:radial-gradient(ellipse at center,#4c0b17,#210609 75%)}
+#surprise{
+  display:none;max-width:650px;margin:30px auto 0;padding:25px;
+  border:1px solid #b82d46;border-radius:18px;background:#140206cc
+}
+#surprise p{font-size:18px;line-height:2;color:#ffe1e5;margin-bottom:12px}
+footer{padding:30px 15px;background:#120205;color:#d99ba4;font-size:15px;line-height:2}
+.floating-heart{
+  position:fixed;bottom:-40px;pointer-events:none;z-index:100;
+  animation:floatUp 5s linear forwards
+}
+@keyframes floatUp{
+  0%{transform:translateY(0);opacity:0}
+  10%{opacity:.9}
+  100%{transform:translateY(-115vh) rotate(35deg);opacity:0}
+}
+@media(max-width:700px){
+  .gallery{grid-template-columns:1fr;max-width:430px}
+  .photo-card img{height:360px}
+  .section{padding:55px 18px}
+  .letter{padding:25px 18px}
+  .letter p{font-size:16px}
+}
+</style>
 </head>
 <body>
-  <section class="hero">
-    <div class="rose">🌹</div>
-    <div class="eyebrow">A little world made just for you</div>
-    <h1>Happy Anniversary,<br><span>My Bubu</span> ❤️</h1>
-    <p class="subtitle">
-      Nine years of memories, a thousand little moments,
-      and one heart that still chooses you.
-    </p>
-    <a href="#letter" class="hero-button">A Letter for You 💌</a>
-    <div class="divider">♥ ♥ ♥</div>
-    <p style="color:#ffc0c8;">9 Years of Us · Forever to Go</p>
-  </section>
-  <section class="section">
-    <h2 class="section-title">To My Favourite Person ❤️</h2>
-    <p class="section-text">
-      Some people become a part of your story.
-      And then there's that one person who becomes
-      your favourite part of the story itself.
-      <br><br>
-      For me, that person will always be you, Bubu.
-      🌹
-    </p>
-    <div class="divider">❣</div>
-  </section>
-  <section class="section gallery-section">
-    <h2 class="section-title">Our Little Memories 📸</h2>
-    <p class="section-text">
-      Every picture holds a moment.
-      Every moment holds a feeling.
-      And every memory with you means something to me.
-    </p>
-    <div class="gallery">
-      <div class="photo-card">
-        <img src="photos/photo1.JPG"
-             alt="One of my favourite memories"
-             loading="lazy">
-        <div class="caption">One of my favourite memories 🥹</div>
-      </div>
-      <div class="photo-card">
-        <img src="photos/photo2.GIF"
-             alt="Just us, being us"
-             loading="lazy">
-        <div class="caption">Just us, being us ✨</div>
-      </div>
-      <div class="photo-card">
-        <img src="photos/photo3.JPG"
-             alt="Still choosing you"
-             loading="lazy">
-        <div class="caption">Still choosing you ❤️</div>
-      </div>
+<section class="hero">
+  <div class="rose">🌹</div>
+  <div class="eyebrow">A little world made just for you</div>
+  <h1>Happy Anniversary,<br><span>My Bubu</span> ❤️</h1>
+  <p class="subtitle">
+    Nine years of memories, a thousand little moments,
+    and one heart that still chooses you.
+  </p>
+  <a href="#letter" class="button">A Letter for You 💌</a>
+  <div class="divider">♥ ♥ ♥</div>
+  <p style="color:#ffc0c8">9 Years of Us · Forever to Go</p>
+</section>
+<section class="section">
+  <h2 class="section-title">To My Favourite Person ❤️</h2>
+  <p class="section-text">
+    Some people become a part of your story.
+    And then there's that one person who becomes
+    your favourite part of the story itself.
+    <br><br>
+    For me, that person will always be you, Bubu. 🌹
+  </p>
+  <div class="divider">❣</div>
+</section>
+<section class="section gallery-section">
+  <h2 class="section-title">Our Little Memories 📸</h2>
+  <p class="section-text">
+    Every picture holds a moment. Every moment holds a feeling.
+    And every memory with you means something to me.
+  </p>
+  <div class="gallery">
+    <!-- PHOTO 1: favourite memories -->
+    <div class="photo-card">
+      <img src="photos/photo1.JPG"
+           alt="One of my favourite memories">
+      <div class="caption">One of my favourite memories 🥹</div>
     </div>
-  </section>
-  <section class="section letter-section" id="letter">
-    <div class="rose">💌</div>
-    <h2 class="section-title">A Love Letter for Bubu</h2>
-    <div class="letter">
-      <h3>My Dearest Bubu, ❤️</h3>
-      <p>
-        Nine years. When I think about it, I realise how many
-        memories, conversations, smiles, and emotions those
-        years hold.
-      </p>
-      <p>
-        You're someone who holds a very special place in my
-        heart. No matter how ordinary a day may be, having
-        you in my life makes it mean a little more.
-      </p>
-      <p>
-        I may not always find the perfect words to explain
-        what you mean to me, but I hope my actions, my care,
-        and the love I have for you show you how precious
-        you are to me.
-      </p>
-      <p>
-        If I could make one wish for our future, it would be
-        for us to keep growing together, to understand each
-        other better, and to have countless more memories
-        worth smiling about.
-      </p>
-      <p>
-        Happy 9th Anniversary, Bubu. Thank you for being
-        part of my life and my story. ❤️
-      </p>
-      <p class="signature">
-        Forever yours,<br>
-        Your Dudu 💋
-      </p>
+    <!-- PHOTO 2: just us -->
+    <div class="photo-card">
+      <img src="photos/photo2.GIF"
+           alt="Just us, being us">
+      <div class="caption">Just us, being us ✨</div>
     </div>
-  </section>
-  <section class="section promise-section">
-    <div class="rose">🌹</div>
-    <h2 class="section-title">One Little Surprise</h2>
-    <p class="section-text">
-      There's one more thing I want you to read,
-      my Bubu. Open it when you're ready. ❤️
+    <!-- PHOTO 3: still choosing you -->
+    <div class="photo-card">
+      <img src="photos/photo3.JPG"
+           alt="Still choosing you">
+      <div class="caption">Still choosing you ❤️</div>
+    </div>
+  </div>
+</section>
+<section class="section letter-section" id="letter">
+  <div class="rose">💌</div>
+  <h2 class="section-title">A Love Letter for Bubu</h2>
+  <div class="letter">
+    <h3>My Dearest Bubu, ❤️</h3>
+    <p>
+      Nine years. When I think about it, I realise how many
+      memories, conversations, smiles, and emotions those
+      years hold.
     </p>
-    <button class="reveal-button" onclick="revealSurprise()">
-      Open My Heart 💖
-    </button>
-    <div id="surprise">
-      <p>Happy Anniversary, meri Bubu! ❤️🌹</p>
-      <p>
-        Nine years behind us, so many dreams ahead of us,
-        and a heart that still wants to make more memories
-        with you.
-      </p>
-      <p>
-        Whatever tomorrow brings, I hope we keep finding
-        our way back to understanding, kindness, and love.
-        You will always be very special to me.
-      </p>
-      <p>
-        I love you, Bubu. Today, tomorrow, and in all the
-        little moments in between. 🥹❤️
-      </p>
-      <p>Yours always — Dudu 💋</p>
-    </div>
-  </section>
-  <footer>
-    Made with love, just for my Bubu ❤️
-    <br>
-    🌹 Nine years of us. A lifetime of memories to come. 🌹
-  </footer>
-  <script>
-    function revealSurprise() {
-      const surprise = document.getElementById("surprise");
-      surprise.style.display = "block";
-      surprise.scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-      });
-      for (let i = 0; i < 24; i++) {
-        const heart = document.createElement("span");
-        heart.className = "floating-heart";
-        const hearts = ["❤️", "💖", "💕", "🌹", "💗"];
-        heart.textContent =
-          hearts[Math.floor(Math.random() * hearts.length)];
-        heart.style.left = Math.random() * 100 + "vw";
-        heart.style.fontSize = (16 + Math.random() * 20) + "px";
-        heart.style.animationDuration = (3 + Math.random() * 3) + "s";
-        document.body.appendChild(heart);
-        setTimeout(() => heart.remove(), 6500);
-      }
-    }
-  </script>
+    <p>
+      You're someone who holds a very special place in my
+      heart. No matter how ordinary a day may be, having
+      you in my life makes it mean a little more.
+    </p>
+    <p>
+      I may not always find the perfect words to explain
+      what you mean to me, but I hope my care and love
+      show you how precious you are to me.
+    </p>
+    <p>
+      If I could make one wish for our future, it would be
+      for us to keep growing together, understand each other
+      better, and create countless more beautiful memories.
+    </p>
+    <p>
+      Happy 9th Anniversary, Bubu. Thank you for being
+      part of my life and my story. ❤️
+    </p>
+    <p class="signature">
+      Forever yours,<br>
+      Your Dudu 💋
+    </p>
+  </div>
+</section>
+<section class="section promise-section">
+  <div class="rose">🌹</div>
+  <h2 class="section-title">One Little Surprise</h2>
+  <p class="section-text">
+    There's one more thing I want you to read, my Bubu.
+    Open it when you're ready. ❤️
+  </p>
+  <button onclick="revealSurprise()">Open My Heart 💖</button>
+  <div id="surprise">
+    <p>Happy Anniversary, meri Bubu! ❤️🌹</p>
+    <p>
+      Nine years behind us, so many dreams ahead of us,
+      and a heart that still wants to make more memories with you.
+    </p>
+    <p>
+      I hope we keep finding our way back to understanding,
+      kindness, and love. You will always be very special to me.
+    </p>
+    <p>
+      I love you, Bubu. Today, tomorrow, and in all the
+      little moments in between. 🥹❤️
+    </p>
+    <p>Yours always — Dudu 💋</p>
+  </div>
+</section>
+<footer>
+  Made with love, just for my Bubu ❤️
+  <br>
+  🌹 Nine years of us. A lifetime of memories to come. 🌹
+</footer>
+<script>
+function revealSurprise(){
+  const surprise = document.getElementById("surprise");
+  surprise.style.display = "block";
+  surprise.scrollIntoView({behavior:"smooth",block:"center"});
+  for(let i=0;i<24;i++){
+    const heart=document.createElement("span");
+    heart.className="floating-heart";
+    const hearts=["❤️","💖","💕","🌹","💗"];
+    heart.textContent=hearts[Math.floor(Math.random()*hearts.length)];
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.fontSize=(16+Math.random()*20)+"px";
+    heart.style.animationDuration=(3+Math.random()*3)+"s";
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),6500);
+  }
+}
+</script>
 </body>
 </html>
